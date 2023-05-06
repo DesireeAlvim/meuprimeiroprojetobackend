@@ -73,17 +73,15 @@ function mostraPorta() {
 }
 
 //DELETE
-async function deletaMulher(request, response ) {
+async function deletaMulher(request, response) {
     try{
         await Mulher.findByIdAndDelete(request.params.id)
         response.json({ mensagem: "Mulher deletada com sucesso!"})
-
     }catch(erro) {
         consolg.log(erro)
     }
-     
-   
 }
+
 
 app.use(router.get("/mulheres", mostraMulheres)) //configurei rota GET /mulheres
 app.use(router.post("/mulheres", criaMulher))  //configurei rota POST/ mulheres
